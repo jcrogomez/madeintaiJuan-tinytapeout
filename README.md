@@ -10,8 +10,8 @@ they select whether four receiver cells pass, invert, clear or set their data in
 are written only through the scan chain or the stimulus), yet they change how the tissue transforms data, and that change can be observed
 through the pins without reading the programs.
 
-**Status:** not yet fabricated. Verified so far outside this repository's CI: RTL and gate-level tests (25/25), hardening with LibreLane,
-and the Tiny Tapeout precheck. The official GitHub Actions flow runs here.
+**Status:** not yet fabricated. The official Tiny Tapeout flow passes in this repository's GitHub Actions: hardening (gds), precheck,
+gate-level tests (25/25 through the pins) and the GDS viewer.
 
 - What it does and how to test it: [docs/info.md](docs/info.md)
 - Board procedure for the two-program demonstration: [docs/board_program.md](docs/board_program.md)
