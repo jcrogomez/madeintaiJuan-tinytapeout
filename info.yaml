@@ -1,0 +1,38 @@
+project:
+  title: "HatUno A: Two Protected Program Rings"
+  author: "Juan Carlos Romero"
+  discord: "jcolistico"
+  description: "243 cells wired from the aperiodic Hat tiling; two conserved 3-cell rings act as protected programs that select how four receiver cells process data in XOR mode (pass, invert, 0, 1); scan chain, exact predicted periods"
+  language: "Verilog"
+  clock_hz: 100000  # Board clock used by the acceptance programs. Design constraint: 40 ns (25 MHz); every behaviour is per rising edge.
+  tiles: "1x2"      # Measured 2026-10-12: 1x1 fails placement (121.8 % utilization); 1x2 passes build, GL test and precheck.
+  top_module: "tt_um_jcrogomez_bc3" # Change if username/unique identifier differs
+  source_files:
+    - "tt_um_jcrogomez_bc3.v"
+    - "bc3_core.v"
+pinout:
+  ui[0]: "Cell index bit 0 (stimulus target when uio[0] is high; probe target always)"
+  ui[1]: "Cell index bit 1 (stimulus target when uio[0] is high; probe target always)"
+  ui[2]: "Cell index bit 2 (stimulus target when uio[0] is high; probe target always)"
+  ui[3]: "Cell index bit 3 (stimulus target when uio[0] is high; probe target always)"
+  ui[4]: "Cell index bit 4 (stimulus target when uio[0] is high; probe target always)"
+  ui[5]: "Cell index bit 5 (stimulus target when uio[0] is high; probe target always)"
+  ui[6]: "Cell index bit 6 (stimulus target when uio[0] is high; probe target always)"
+  ui[7]: "Cell index bit 7 (stimulus target when uio[0] is high; probe target always)"
+  uo[0]: "Probe: state of cell ui[7:0], combinational"
+  uo[1]: "Scan out"
+  uo[2]: "Any cell excited"
+  uo[3]: "Reserved zero"
+  uo[4]: "Reserved zero"
+  uo[5]: "Reserved zero"
+  uo[6]: "Reserved zero"
+  uo[7]: "Reserved zero"
+  uio[0]: "Stimulus valid, input"
+  uio[1]: "Mode write enable, input"
+  uio[2]: "Mode bit 0, input (0 OR, 1 AND, 2 XOR with programmable receivers)"
+  uio[3]: "Mode bit 1, input"
+  uio[4]: "Scan enable, input"
+  uio[5]: "Scan in, input"
+  uio[6]: "Mode bit 2, input: enable Hat edge 6 on six nucleus cells (period 32760 experiment)"
+  uio[7]: "Unused input"
+yaml_version: 6
